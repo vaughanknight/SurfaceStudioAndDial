@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RadialControllerHelper;
 using RadialControllerHelper.Events;
+using System;
 
 /// <summary>
 /// Gives safe threaded events from the controller.  This gets around 
@@ -70,18 +71,24 @@ public class RadialControllerEventManager : MonoBehaviour {
 
     #endregion
 
+    
     // Use this for initialization
     void Start () {
-        m_controller = new RadialControllerUnityBridge();
-        m_controller.Initialise();
-       
-        m_controller.ButtonClicked += controller_ButtonClicked;
-        m_controller.ControlAcquired += controller_ControlAcquired;
-        m_controller.ControlLost += controller_ControlLost;
-        m_controller.RotationChanged += controller_RotationChanged;
-        m_controller.ScreenContactContinued += controller_ScreenContactContinued;
-        m_controller.ScreenContactEnded += controller_ScreenContactEnded;
-        m_controller.ScreenContactStarted += controller_ScreenContactStarted;
+        try { 
+            m_controller = RadialControllerUnityBridge.Instance;
+        
+            m_controller.ButtonClicked += controller_ButtonClicked;
+            m_controller.ControlAcquired += controller_ControlAcquired;
+            m_controller.ControlLost += controller_ControlLost;
+            m_controller.RotationChanged += controller_RotationChanged;
+            m_controller.ScreenContactContinued += controller_ScreenContactContinued;
+            m_controller.ScreenContactEnded += controller_ScreenContactEnded;
+            m_controller.ScreenContactStarted += controller_ScreenContactStarted;
+        }
+        catch(Exception e)
+        {
+            Debug.LogErrorFormat("Error while starting Radial Controller event handler. {0}", e.ToString());
+        }
     }
 
     private void controller_ScreenContactStarted(object sender, RadialControllerScreenContactStartedEventArgs args)

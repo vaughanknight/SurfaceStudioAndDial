@@ -57,12 +57,12 @@
      <Compile Include="Assets\Addons\Cocuy\Scripts\PolygonBlocker.cs" />
      <Compile Include="Assets\Addons\Cocuy\Scripts\VelocityManipulator.cs" />
      <Compile Include="Assets\Addons\RadialController\RadialControllerBehaviour.cs" />
+     <Compile Include="Assets\Addons\RadialController\RadialControllerEventManager.cs" />
      <Compile Include="Assets\Scripts\ConstantRotation.cs" />
      <Compile Include="Assets\Scripts\DialFollower.cs" />
      <Compile Include="Assets\Scripts\GradientShifter.cs" />
      <Compile Include="Assets\Scripts\HSVtoRGB.cs" />
      <Compile Include="Assets\Scripts\MouseAndTouchEnabler.cs" />
-     <Compile Include="Assets\Scripts\RadialControllerEventManager.cs" />
      <Compile Include="Assets\Scripts\SurfaceDialManipulator.cs" />
      <Compile Include="Assets\Scripts\TouchManipulator.cs" />
      <Compile Include="Assets\Scripts\VelocityVariation.cs" />

@@ -24,34 +24,28 @@ public class RadialControllerBehaviour : MonoBehaviour {
     /// TODO: Move the Intialise into the bridge, hide it
     /// from Unity completely
     /// </summary>
-    void Awake () {
-        _radialController = RadialControllerUnityBridge.Instance;
-        _radialController.Initialise();
-        _radialController.RotationResolutionInDegrees = RotationResolution;
-        _radialController.UseAutomaticHapticFeedback = UseAutomaticHapticFeedback;
-        _radialController.ScreenContactStarted += _radialController_ScreenContactStarted;
-        _radialController.ScreenContactEnded += _radialController_ScreenContactEnded;
-        _radialController.ScreenContactContinued += _radialController_ScreenContactContinued;
-    }
-
-    private void _radialController_ScreenContactContinued(object sender, RadialControllerHelper.Events.RadialControllerScreenContactContinuedEventArgs args)
+    void Awake ()
     {
-        
-    }
-
-    private void _radialController_ScreenContactEnded(object sender, object args)
-    {
-        
-    }
-
-    private void _radialController_ScreenContactStarted(object sender, RadialControllerHelper.Events.RadialControllerScreenContactStartedEventArgs args)
-    {
-        
+        try
+        {
+            Debug.LogError("Creating instance.");
+            _radialController = RadialControllerUnityBridge.Instance;
+        }
+        catch(Exception e)
+        {
+            Debug.LogErrorFormat("Error while Initialising and configuring Radial Controller. {0}", e.ToString());
+        }
     }
 
     public void Start()
     {
-        foreach(var m in MenuItems)
+        Debug.LogError("Setting rotation.");
+        _radialController.RotationResolutionInDegrees = RotationResolution;
+
+        Debug.LogError("Setting haptic.");
+        _radialController.UseAutomaticHapticFeedback = UseAutomaticHapticFeedback;
+
+        foreach (var m in MenuItems)
         {
             var data = m.Icon.EncodeToPNG();
             _radialController.AddMenuItem(m.Title, m.Icon);

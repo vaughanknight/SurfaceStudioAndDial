@@ -51,8 +51,6 @@ public class MouseManipulator : MonoBehaviour {
 				float fWidth = m_particlesArea.GetComponent<Renderer>().bounds.extents.x * 2f;
 				float fRadius = (m_particlesRadius * m_particlesArea.GetWidth()) / fWidth;
 				m_particlesArea.AddParticles(hitInfo.textureCoord, fRadius, m_particlesStrength * Time.deltaTime);
-                //Debug.Log("Adding particles:" + m_particlesStrength  + "," + Time.deltaTime);
-                
             }
 		}
 
