@@ -1,19 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using UnityEngine;
 
-
-
+/// <summary>
+/// Shifts the gradient through various hue's
+/// </summary>
 public class GradientShifter : MonoBehaviour {
-    public enum Foo
-    {
-        a, b, c
-    }
-
     public ParticlesArea _ParticlesArea;
     public SpriteRenderer _SpriteRenderer;
-
+    public float HueShiftTime = 30f;
     private float _hueCounter = 0;
     private Gradient _startGradient;
 
@@ -28,23 +21,28 @@ public class GradientShifter : MonoBehaviour {
     
     private void StartGradientTransition()
     {
-        iTween.ValueTo(gameObject, iTween.Hash("from", 0f, "to", 1f, "time", 30f, "onupdate", "OnValueUpdate", "oncomplete", "OnValueComplete", "easeType", iTween.EaseType.easeInOutSine));
+        // Uses iTween for the hue shift timer for ease
+        // Hue will shift by 0 to 1, over 30 seconds
+        // NOTE: iTween is not the most efficient when you have
+        // multiple iTweens at the same time, so if you plan on 
+        // extending this, or having 10+ lerps simultaneously, 
+        // I advise using something else.
+        iTween.ValueTo(gameObject, iTween.Hash("from", 0f, "to", 1f, "time", HueShiftTime, "onupdate", "OnValueUpdate", "oncomplete", "OnValueComplete", "easeType", iTween.EaseType.easeInOutSine));
     }
 
     private int _gradientIndex = 0;
 
     public void OnValueUpdate(float offset)
     {
-        var newColorKeys = new GradientColorKey[_startGradient.colorKeys.Length];
-
-        // Create the gradient
+        // We can not update the current gradient, 
+        // but in fact have to create a new one
         var newGradient = new Gradient();
         newGradient.alphaKeys = _startGradient.alphaKeys;
         newGradient.mode = GradientMode.Blend;
 
         // Let's get a copy as a starting point
         // for the colour keys
-        newColorKeys = _startGradient.colorKeys;
+        var newColorKeys = _startGradient.colorKeys;
 
         // Shift the hue of the colour keys
         ShiftColourKeysByHueOffset(offset, newColorKeys);
@@ -82,32 +80,12 @@ public class GradientShifter : MonoBehaviour {
             }
         }
     }
-
-
+    
     /// <summary>
     /// Loop forever on complete
     /// </summary>
     public void OnValueComplete()
     {
         StartGradientTransition();
-    }
-
-    
-
-    // Update is called once per frame
-    void Update () {
-        //var i = (int)(Time.timeSinceLevelLoad % _Gradients.Count);
-        //_ParticlesArea.m_updateGradient = true;
-        //_ParticlesArea.m_colourGradient = _Gradients[i];
-
-       
-
-        //var speed = 6f;
-        
-        //var t = Mathf.Sin(Time.timeSinceLevelLoad * Mathf.PI) / speed + 0.5f;
-        //var index1 = ((int)(Time.timeSinceLevelLoad * Mathf.PI)) % 3;
-        //var index2 = (index1 + 1) % 3;
-        
-      
     }
 }

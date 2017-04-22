@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Use mouse when in the editor, touch when not in the editor.  This 
+/// is because Unity doesn't support 10 point multitouch so we want the mouse, 
+/// where as we do not want mouse support when in UWP due to surface dial 
+/// and 10 point touch working.
+/// </summary>
 public class MouseAndTouchEnabler : MonoBehaviour
 {
     public MouseManipulator _MouseManipulator;
     public TouchManipulator _TouchManipulator;
-
-    // Use this for initialization
+    
     void Start()
     {
 #if !UNITY_EDITOR
@@ -15,21 +20,9 @@ public class MouseAndTouchEnabler : MonoBehaviour
 #else
         _TouchManipulator.enabled = false;
 #endif
-        //if (Application.isEditor)
-        //{
-        //    Debug.Log("Disabling Mouse Manipulator.");
-        //    _MouseManipulator.enabled = false;
-        //}
-        //else
-        //{
-        //    Debug.Log("Disabling Touch Manipulator.");
-        //    _TouchManipulator.enabled = false;
-        //}
+        // Job done, self destruct to clean up the object tree
+        // as this object is not needed any longer
+        //GameObject.Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

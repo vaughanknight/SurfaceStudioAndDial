@@ -29,7 +29,25 @@ public class RadialControllerBehaviour : MonoBehaviour {
         _radialController.Initialise();
         _radialController.RotationResolutionInDegrees = RotationResolution;
         _radialController.UseAutomaticHapticFeedback = UseAutomaticHapticFeedback;
-	}
+        _radialController.ScreenContactStarted += _radialController_ScreenContactStarted;
+        _radialController.ScreenContactEnded += _radialController_ScreenContactEnded;
+        _radialController.ScreenContactContinued += _radialController_ScreenContactContinued;
+    }
+
+    private void _radialController_ScreenContactContinued(object sender, RadialControllerHelper.Events.RadialControllerScreenContactContinuedEventArgs args)
+    {
+        
+    }
+
+    private void _radialController_ScreenContactEnded(object sender, object args)
+    {
+        
+    }
+
+    private void _radialController_ScreenContactStarted(object sender, RadialControllerHelper.Events.RadialControllerScreenContactStartedEventArgs args)
+    {
+        
+    }
 
     public void Start()
     {

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Represents the HSV color format
+/// </summary>
 public struct HSV
 {
     public HSV(float h, float s, float v)
@@ -16,9 +19,13 @@ public struct HSV
     public float v;
 }
 
+/// <summary>
+/// Static helper class for Unity to translate between the HSV and RGB color spaces.  
+/// Converts from HSV to RGB and vice versa.
+/// NOTE: The maths is well known and all over the web.  No magic here.
+/// </summary>
 public static class ColorSpace
 {
-    // Expects and returns values in the range 0 to 1
     public static Color HSVtoRGB(HSV hsv)
     {
         var h = hsv.h;
@@ -82,7 +89,6 @@ public static class ColorSpace
         return new Color(r, g, b);
     }
 
-    // Expects and returns values in the range 0 to 1
     public static HSV RGBtoHSV(Color rgb)
     {
         var r = rgb.r;

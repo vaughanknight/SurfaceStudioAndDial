@@ -6,9 +6,6 @@ using RadialControllerHelper.Events;
 
 public class SurfaceDialManipulator : MonoBehaviour {
     
-    /// <summary>
-    /// The particle area manipulator
-    /// </summary>
     private ParticlesAreaManipulator m_particles;
     private RadialControllerUnityBridge m_controller;
     private float m_rotationDeltaInDegrees = 0;
@@ -20,11 +17,15 @@ public class SurfaceDialManipulator : MonoBehaviour {
     public event RadialControllerButtonClickedEventHandler ButtonClicked;
     private RadialControllerButtonClickedEventArgs _buttonClickedArgs;
 
+    void Awake()
+    {
+        m_controller = RadialControllerUnityBridge.Instance;
+    }
+
     // Use this for initialization
     void Start () {
         m_particles = GetComponent<ParticlesAreaManipulator>();
 
-        m_controller = RadialControllerUnityBridge.Instance;
         
         m_controller.RotationChanged += _controller_RotationChanged;
         m_controller.ButtonClicked += _controller_ButtonClicked;
