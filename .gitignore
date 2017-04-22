@@ -5,6 +5,10 @@ UWP
 UWP/**
 Build
 Build/**
+Library
+Library/**
+Temp
+Temp/**
 obj
 obj/**
 bin
