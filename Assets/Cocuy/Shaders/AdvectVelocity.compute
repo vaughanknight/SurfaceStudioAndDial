@@ -1,0 +1,44 @@
+﻿#pragma kernel Advect
+
+RWStructuredBuffer<float2> _VelocityIn;
+RWStructuredBuffer<float2> _Obstacles;
+RWStructuredBuffer<float2> _VelocityOut;
+const uint2 _Size;
+float _Dissipation;
+float _ElapsedTime;
+float _Speed;
+
+[numthreads(32, 32, 1)]
+void Advect(uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= _Size.x || id.y >= _Size.y) { return; }
+	const uint pos = id.y*_Size.x + id.x;
+
+	const float2 obstacle = _Obstacles[pos];
+	if(obstacle.x > 0.0 || obstacle.y > 0.0)
+	{
+		_VelocityOut[pos] = float2(0,0);
+	}
+	else
+	{
+		const float2 vel = _VelocityIn[pos];
+		const float2 final_pos = float2(id.x - vel.x*_ElapsedTime*_Speed, id.y - vel.y*_ElapsedTime*_Speed);
+
+		const int2 zero = int2(0,0);
+		const int2 SizeBounds = int2(_Size.x - 1, _Size.y - 1);
+		const int2 top_right = clamp(ceil(final_pos), zero, SizeBounds);
+		const int2 bottom_left = clamp(floor(final_pos), zero, SizeBounds);
+
+		const float2 delta = final_pos - bottom_left;
+
+		const float2 lt = _VelocityIn[top_right.y*_Size.x + bottom_left.x];
+		const float2 rt = _VelocityIn[top_right.y*_Size.x + top_right.x];
+
+		const float2 lb = _VelocityIn[bottom_left.y*_Size.x + bottom_left.x];
+		const float2 rb = _VelocityIn[bottom_left.y*_Size.x + top_right.x];
+
+		const float2 h1 = lerp(lt, rt, delta.x);
+		const float2 h2 = lerp(lb, rb, delta.x);
+		_VelocityOut[pos] = lerp(h2, h1, delta.y)*_Dissipation;
+	}
+}

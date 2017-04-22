@@ -1,0 +1,31 @@
+﻿#pragma kernel InitPressureBoundaries
+
+RWStructuredBuffer<float> _Pressure;
+const uint2 _Size;
+
+[numthreads(32, 32, 1)]
+void InitPressureBoundaries(uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= _Size.x || id.y >= _Size.y) { return; }
+	uint pos = id.y*_Size.x + id.x;
+
+	if(id.x == 0)
+	{
+		_Pressure[pos] = _Pressure[id.y*_Size.x + 1];
+	}
+
+	if(id.x == _Size.x-1)
+	{
+		_Pressure[pos] = _Pressure[id.y*_Size.x + (_Size.x-2)];
+	}
+
+	if(id.y == 0)
+	{
+		_Pressure[pos] = _Pressure[(id.y+1)*_Size.x + id.x];
+	}
+
+	if(id.y == _Size.y-1)
+	{
+		_Pressure[pos] = _Pressure[(id.y-1)*_Size.x + id.x];
+	}
+}

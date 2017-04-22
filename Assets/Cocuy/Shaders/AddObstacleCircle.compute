@@ -1,0 +1,28 @@
+﻿#pragma kernel AddBlock
+
+RWStructuredBuffer<float2> _Buffer;
+const uint2 _Size;
+float _Radius;
+float2 _Position;
+int _Static;
+
+[numthreads(32, 32, 1)]
+void AddBlock(uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= _Size.x || id.y >= _Size.y) { return; }
+
+	const uint pos = id.y*_Size.x + id.x;
+	const float2 splat_pos = _Position*_Size;
+
+	if(distance(splat_pos, (float2) id) <= _Radius)
+	{
+		if(_Static > 0)
+		{
+			_Buffer[pos].y = 1.0;
+		}
+		else
+		{
+			_Buffer[pos].x = 1.0;
+		}
+	}	
+}

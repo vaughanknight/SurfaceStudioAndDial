@@ -1,0 +1,27 @@
+﻿#pragma kernel AddSplat
+
+RWStructuredBuffer<float2> _VelocityIn;
+RWStructuredBuffer<float2> _VelocityOut;
+const uint2 _Size;
+float _Radius;
+float2 _Position;
+float2 _Value;
+
+[numthreads(32, 32, 1)]
+void AddSplat(uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= _Size.x || id.y >= _Size.y) { return; }
+
+	const uint pos = id.y*_Size.x + id.x;
+	const float2 splat_pos = _Position*_Size;
+
+	const float2 val = _VelocityIn[pos];
+	float2 result = val;
+
+	float len = distance(splat_pos, (float2) id);
+	if(len <= _Radius)
+	{
+		result = val + _Value*(_Radius - len) / _Radius;
+	}
+	_VelocityOut[pos] = result;
+}

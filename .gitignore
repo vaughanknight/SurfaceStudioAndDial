@@ -1,0 +1,13 @@
+.vs
+.vs/*
+*.meta
+UWP
+UWP/**
+Build
+Build/**
+obj
+obj/**
+bin
+bin/**
+*.pdb
+project.lock.json

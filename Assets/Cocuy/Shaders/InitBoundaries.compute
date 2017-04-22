@@ -1,0 +1,34 @@
+﻿#pragma kernel InitBoundaries
+
+RWStructuredBuffer<float2> _Velocity;
+const uint2 _Size;
+
+[numthreads(32, 32, 1)]
+void InitBoundaries(uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= _Size.x || id.y >= _Size.y) { return; }
+	uint pos = id.y*_Size.x + id.x;
+
+	if(id.x == 0)
+	{
+		float2 next = _Velocity[id.y*_Size.x + (id.x + 1)];
+		_Velocity[pos] = float2(-next.x, -next.y);
+	}
+	else if(id.x == _Size.x-1)
+	{
+		float2 next = _Velocity[id.y*_Size.x + (_Size.x-2)];
+		_Velocity[pos] = float2(-next.x, -next.y);
+	}
+
+	else if(id.y == 0)
+	{
+		float2 next = _Velocity[(id.y+1)*_Size.x + id.x];
+		_Velocity[pos] = float2(-next.x, -next.y);
+	}
+
+	else if(id.y == _Size.y-1)
+	{
+		float2 next = _Velocity[(_Size.y-2)*_Size.x + id.x];
+		_Velocity[pos] = float2(-next.x, -next.y);
+	}
+}

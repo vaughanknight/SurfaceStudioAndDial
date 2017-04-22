@@ -1,0 +1,50 @@
+﻿#pragma kernel SubstractGradient
+
+RWStructuredBuffer<float2> _VelocityIn;
+RWStructuredBuffer<float2> _VelocityOut;
+RWStructuredBuffer<float> _Pressure;
+RWStructuredBuffer<float2> _Obstacles;
+const uint2 _Size;
+
+uint4 GetNeighbours(int2 pos, int2 size)
+{
+	uint4 result;
+	const int maxX = size.x-1;
+	const int maxY = size.y-1;
+
+	result.x = pos.y*_Size.x					+ clamp(pos.x-1, 0, maxX);
+	result.y = pos.y*_Size.x					+ clamp(pos.x+1, 0, maxX);
+	result.z = clamp(pos.y-1, 0, maxY)*size.x	+ pos.x;
+	result.w = clamp(pos.y+1, 0, maxY)*size.x	+ pos.x;
+	return result;
+}
+
+[numthreads(32, 32, 1)]
+void SubstractGradient(uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= _Size.x || id.y >= _Size.y) { return; }
+
+	const uint4 n = GetNeighbours(id.xy, _Size);
+
+	const uint pos = id.y*_Size.x + id.x;
+	float x1 = _Pressure[n.x];
+	float x2 = _Pressure[n.y];
+	float y1 = _Pressure[n.z];
+	float y2 = _Pressure[n.w];
+	float p = _Pressure[pos];
+
+	const float2 obsL = _Obstacles[n.x];
+	const float2 obsR = _Obstacles[n.y];
+	const float2 obsB = _Obstacles[n.z];
+	const float2 obsT = _Obstacles[n.w];
+
+	if(obsL.x > 0.0 || obsL.y > 0.0) x1 = p;
+	if(obsR.x > 0.0 || obsR.y > 0.0) x2 = p;
+	if(obsB.x > 0.0 || obsB.y > 0.0) y1 = p;
+	if(obsT.x > 0.0 || obsT.y > 0.0) y2 = p;
+
+	float2 velocity = _VelocityIn[pos];
+	velocity.x -= 0.5f * (x2 - x1);
+	velocity.y -= 0.5f * (y2 - y1);
+	_VelocityOut[pos] = velocity;
+}

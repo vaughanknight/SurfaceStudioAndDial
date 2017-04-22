@@ -1,0 +1,12 @@
+﻿#pragma kernel ClearBuffer
+
+RWStructuredBuffer<float2> _Buffer;
+const uint2 _Size;
+
+[numthreads(32, 32, 1)]
+void ClearBuffer(uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= _Size.x || id.y >= _Size.y) { return; }
+	uint pos = id.y*_Size.x + id.x;
+	_Buffer[pos].x = 0.0;
+}

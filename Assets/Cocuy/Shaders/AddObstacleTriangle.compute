@@ -1,0 +1,40 @@
+﻿#pragma kernel AddBlock
+
+RWStructuredBuffer<float2> _Buffer;
+const uint2 _Size;
+float2 _P1;
+float2 _P2;
+float2 _P3;
+int _Static;
+
+float Sign(float2 p1, float2 p2, float2 p3)
+{
+    return ((p1.x - p3.x) * (p2.y - p3.y)) - ((p2.x - p3.x) * (p1.y - p3.y));
+}
+ 
+bool IsPointInTriangle(float2 pt, float2 v1, float2 v2, float2 v3)
+{
+    const bool b1 = Sign(pt, v1, v2) < 0.0f;
+    const bool b2 = Sign(pt, v2, v3) < 0.0f;
+    const bool b3 = Sign(pt, v3, v1) < 0.0f;
+    return (b1 == b2) && (b2 == b3);
+}
+
+[numthreads(32, 32, 1)]
+void AddBlock(uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= _Size.x || id.y >= _Size.y) { return; }
+	const float2 pt = float2(id.x, id.y) / float2(_Size);
+	if(IsPointInTriangle(pt, _P1, _P2, _P3))
+	{
+		const uint pos = id.y*_Size.x + id.x;
+		if(_Static > 0)
+		{
+			_Buffer[pos].y = 1.0;
+		}
+		else
+		{
+			_Buffer[pos].x = 1.0;
+		}
+	}	
+}

@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{A37F2124-31CF-0664-52D9-932EAED27D8A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_1;UNITY_5_5;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_METRO;UNITY_METRO_API;UNITY_WINRT;ENABLE_WINRT_PINVOKE;ENABLE_LAZY_METHOD_CACHING;ENABLE_MOVIES;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_NETWORK;ENABLE_EVENT_QUEUE;UNITY_PLATFORM_THREAD_TO_CORE_MAPPING;ENABLE_SUBSTANCE;PLATFORM_SUPPORTS_ADS_ID;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;CURL_STATICLIB;ENABLE_VR;UNITY_WSA;ENABLE_DOTNET;ENABLE_PROFILER;UNITY_WSA_10_0;UNITY_WINRT_10_0;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;GAIA_PRESENT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:\Program Files\Unity\Editor\Data\PlaybackEngines\MetroSupport/Tools/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Cocuy\Demos\Scripts\Pendulum.cs" />
+     <Compile Include="Assets\Cocuy\Demos\Scripts\ShipPlayerController.cs" />
+     <Compile Include="Assets\Cocuy\Scripts\Blocker.cs" />
+     <Compile Include="Assets\Cocuy\Scripts\FluidFollower.cs" />
+     <Compile Include="Assets\Cocuy\Scripts\FluidSimulator.cs" />
+     <Compile Include="Assets\Cocuy\Scripts\MouseManipulator.cs" />
+     <Compile Include="Assets\Cocuy\Scripts\ParticlesArea.cs" />
+     <Compile Include="Assets\Cocuy\Scripts\ParticlesAreaManipulator.cs" />
+     <Compile Include="Assets\Cocuy\Scripts\PolygonBlocker.cs" />
+     <Compile Include="Assets\Cocuy\Scripts\VelocityManipulator.cs" />
+     <Compile Include="Assets\ConstantRotation.cs" />
+     <Compile Include="Assets\DialFollower.cs" />
+     <Compile Include="Assets\GradientPallette.cs" />
+     <Compile Include="Assets\GradientShifter.cs" />
+     <Compile Include="Assets\HSVtoRGB.cs" />
+     <Compile Include="Assets\MouseAndTouchEnabler.cs" />
+     <Compile Include="Assets\RadialController\RadialControllerBehaviour.cs" />
+     <Compile Include="Assets\RadialControllerEventManager.cs" />
+     <Compile Include="Assets\RadialControllerTest.cs" />
+     <Compile Include="Assets\RandomCircularAddVelocity.cs" />
+     <Compile Include="Assets\SurfaceDialManipulator.cs" />
+     <Compile Include="Assets\TouchManipulator.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Camera\Scripts\CameraController.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Checkers\Scripts\Board.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Checkers\Scripts\Exclusive.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Colors\Scripts\Circle.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Colors\Scripts\Colors.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Cube\Scripts\CustomTouchProxy.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Cube\Scripts\Init.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Cube\Scripts\LayerDelegate.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Cube\Scripts\RedirectInput.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Multiuser\Scripts\Logo.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Photos\Scripts\Container.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Photos\Scripts\SetColor.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Portal\Scripts\Planet.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Portal\Scripts\Rotator.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Portal\Scripts\Vortex.cs" />
+     <Compile Include="Assets\TouchScript\Examples\RawInput\Scripts\Ball.cs" />
+     <Compile Include="Assets\TouchScript\Examples\RawInput\Scripts\Spawner.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Taps\Scripts\Break.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Taps\Scripts\Kick.cs" />
+     <Compile Include="Assets\TouchScript\Examples\Taps\Scripts\Spawn.cs" />
+     <Compile Include="Assets\TouchScript\Examples\_misc\Scripts\Checker.cs" />
+     <Compile Include="Assets\TouchScript\Examples\_misc\Scripts\KillMe.cs" />
+     <Compile Include="Assets\TouchScript\Examples\_misc\Scripts\Runner.cs" />
+     <Compile Include="Assets\TouchScript\Modules\TUIO\Scripts\InputSources\TuioInput.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Behaviors\TouchScriptInputModule.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Behaviors\Transformer.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Behaviors\Visualizer\TouchProxy.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Behaviors\Visualizer\TouchVisualizer.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Clusters\Clusters.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\DebuggableMonoBehaviour.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Devices\Display\DisplayDevice.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Devices\Display\GenericDisplayDevice.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Devices\Display\IDisplayDevice.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\GestureManager.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\GestureManagerInstance.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\Base\PinnedTransformGestureBase.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\Base\TransformGestureBase.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\Clustered\ClusteredPinnedTransformGesture.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\Clustered\ClusteredScreenTransformGesture.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\Clustered\ClusteredTransformGesture.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\FlickGesture.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\Gesture.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\IGestureDelegate.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\ITransformGesture.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\LongPressGesture.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\MetaGesture.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\PinnedTransformGesture.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\PressGesture.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\ReleaseGesture.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\ScreenTransformGesture.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\TapGesture.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\TransformGesture.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Gestures\UI\UIGesture.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Hit\HitTest.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Hit\TouchHit.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Hit\Untouchable.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\IDebuggable.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\IGestureManager.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\ITouchManager.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\InputSources\ICoordinatesRemapper.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\InputSources\IInputSource.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\InputSources\InputHandlers\MouseHandler.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\InputSources\InputHandlers\TouchHandler.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\InputSources\InputHandlers\WindowsTouchHandlers.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\InputSources\InputSource.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\InputSources\MobileInput.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\InputSources\MouseInput.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\InputSources\StandardInput.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Layers\CameraLayer.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Layers\CameraLayer2D.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Layers\CameraLayerBase.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Layers\FullscreenLayer.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Layers\ILayerDelegate.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Layers\ProjectionParams.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Layers\TouchLayer.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Layers\UILayer.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Tags.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\TouchManager.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\TouchManagerInstance.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\TouchPoint.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Utils\Attributes\NullToggleAttribute.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Utils\Attributes\ToggleLeftAttribute.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Utils\ClusterUtils.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Utils\Debug\DebugHelper.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Utils\Debug\GLDebug.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Utils\EventHandlerExtensions.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Utils\Geom\TwoD.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Utils\ObjectPool.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Utils\ProjectionUtils.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Utils\TimedSequence.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Utils\TouchUtils.cs" />
+     <Compile Include="Assets\TouchScript\Scripts\Utils\TransformUtils.cs" />
+     <Compile Include="Assets\VelocityVariation.cs" />
+     <None Include="Assets\TouchScript\Shaders\DebugDepthTest.shader" />
+     <None Include="Assets\Cocuy\Shaders\Viscosity.compute" />
+     <None Include="Assets\Cocuy\Shaders\ApplyVorticity.compute" />
+     <None Include="Assets\Cocuy\Shaders\AddVelocity.compute" />
+     <None Include="Assets\TouchScript\license.txt" />
+     <None Include="Assets\Cocuy\Shaders\Divergence.compute" />
+     <None Include="Assets\Cocuy\Shaders\SubstractGradient.compute" />
+     <None Include="Assets\Cocuy\Materials\MaterialRenderer.shader" />
+     <None Include="Assets\TouchScript\Shaders\DebugMultiplyDepthTest.shader" />
+     <None Include="Assets\TouchScript\Shaders\DebugNoDepthTest.shader" />
+     <None Include="Assets\Cocuy\Shaders\Poisson.compute" />
+     <None Include="Assets\Cocuy\Shaders\InitPressureBoundaries.compute" />
+     <None Include="Assets\Cocuy\Shaders\AdvectVelocity.compute" />
+     <None Include="Assets\Cocuy\Shaders\AdvectParticles.compute" />
+     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
+     <None Include="Assets\Cocuy\Shaders\CalcVorticity.compute" />
+     <None Include="Assets\Cocuy\Shaders\AddObstacleCircle.compute" />
+     <None Include="Assets\Cocuy\Shaders\ClearBuffer.compute" />
+     <None Include="Assets\Cocuy\Shaders\AddParticles.compute" />
+     <None Include="Assets\Cocuy\Shaders\AddObstacleTriangle.compute" />
+     <None Include="Assets\TouchScript\Shaders\DebugMultiplyNoDepthTest.shader" />
+     <None Include="Assets\TouchScript\Examples\_misc\Shaders\UnlitColor.shader" />
+     <None Include="Assets\TouchScript\Examples\_misc\Shaders\BorderDiffuse.shader" />
+     <None Include="Assets\Cocuy\Shaders\InitBoundaries.compute" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.PlaymodeTestsRunner">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VR">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="RadialController.UWP">
+ <HintPath>C:/Projects/vaughan/Vivid/Assets/Plugins/RadialController.UWP.dll</HintPath>
+ </Reference>
+ <Reference Include="OSCsharp">
+ <HintPath>C:/Projects/vaughan/Vivid/Assets/TouchScript/Modules/TUIO/Libraries/OSCsharp.dll</HintPath>
+ </Reference>
+ <Reference Include="TUIOsharp">
+ <HintPath>C:/Projects/vaughan/Vivid/Assets/TouchScript/Modules/TUIO/Libraries/TUIOsharp.dll</HintPath>
+ </Reference>
+ <Reference Include="Mono.Cecil">
+ <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{A1B2975C-22B0-2420-5EFD-29AE274FDB4D}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

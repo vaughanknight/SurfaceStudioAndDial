@@ -1,0 +1,45 @@
+﻿#pragma kernel Divergence
+
+RWStructuredBuffer<float2> _Velocity;
+RWStructuredBuffer<float2> _Obstacles;
+RWStructuredBuffer<float> _Divergence;
+const uint2 _Size;
+
+uint4 GetNeighbours(int2 pos, int2 size)
+{
+	uint4 result;
+	const int maxX = size.x-1;
+	const int maxY = size.y-1;
+
+	result.x = pos.y*_Size.x					+ clamp(pos.x-1, 0, maxX);
+	result.y = pos.y*_Size.x					+ clamp(pos.x+1, 0, maxX);
+	result.z = clamp(pos.y-1, 0, maxY)*size.x	+ pos.x;
+	result.w = clamp(pos.y+1, 0, maxY)*size.x	+ pos.x;
+	return result;
+}
+
+[numthreads(32, 32, 1)]
+void Divergence(uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= _Size.x || id.y >= _Size.y) { return; }
+	const uint pos = id.y*_Size.x + id.x;
+
+	const uint4 n = GetNeighbours(id.xy, _Size);
+
+	float x1 = _Velocity[n.x].x;
+	float x2 = _Velocity[n.y].x;
+	float y1 = _Velocity[n.z].y;
+	float y2 = _Velocity[n.w].y;
+
+	const float2 obsL = _Obstacles[n.x];
+	const float2 obsR = _Obstacles[n.y];
+	const float2 obsB = _Obstacles[n.z];
+	const float2 obsT = _Obstacles[n.w];
+
+	if(obsL.x > 0.0 || obsL.y > 0.0) x1 = 0.0;
+	if(obsR.x > 0.0 || obsR.y > 0.0) x2 = 0.0;
+	if(obsB.x > 0.0 || obsB.y > 0.0) y1 = 0.0;
+	if(obsT.x > 0.0 || obsT.y > 0.0) y2 = 0.0;
+
+	_Divergence[pos] = 0.5f * ((x2 - x1) + (y2 - y1));
+}
