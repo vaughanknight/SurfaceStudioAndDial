@@ -46,30 +46,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Cocuy\Editor\BlockerEditor.cs" />
-     <Compile Include="Assets\Cocuy\Editor\FluidSimulatorEditor.cs" />
-     <Compile Include="Assets\Cocuy\Editor\MouseManipulatorEditor.cs" />
-     <Compile Include="Assets\Cocuy\Editor\PartcilesAreaManipulatorEditor.cs" />
-     <Compile Include="Assets\Cocuy\Editor\ParticlesAreaEditor.cs" />
-     <Compile Include="Assets\Cocuy\Editor\VelocityManipulatorEditor.cs" />
-     <Compile Include="Assets\RadialController\Editor\RadialControllerEditor.cs" />
-     <None Include="Assets\Cocuy\Shaders\Viscosity.compute" />
-     <None Include="Assets\Cocuy\Shaders\ApplyVorticity.compute" />
-     <None Include="Assets\Cocuy\Shaders\AddVelocity.compute" />
-     <None Include="Assets\Cocuy\Shaders\Divergence.compute" />
-     <None Include="Assets\Cocuy\Shaders\SubstractGradient.compute" />
-     <None Include="Assets\Cocuy\Materials\MaterialRenderer.shader" />
-     <None Include="Assets\Cocuy\Shaders\Poisson.compute" />
-     <None Include="Assets\Cocuy\Shaders\InitPressureBoundaries.compute" />
-     <None Include="Assets\Cocuy\Shaders\AdvectVelocity.compute" />
-     <None Include="Assets\Cocuy\Shaders\AdvectParticles.compute" />
+     <Compile Include="Assets\Addons\Cocuy\Editor\BlockerEditor.cs" />
+     <Compile Include="Assets\Addons\Cocuy\Editor\FluidSimulatorEditor.cs" />
+     <Compile Include="Assets\Addons\Cocuy\Editor\MouseManipulatorEditor.cs" />
+     <Compile Include="Assets\Addons\Cocuy\Editor\PartcilesAreaManipulatorEditor.cs" />
+     <Compile Include="Assets\Addons\Cocuy\Editor\ParticlesAreaEditor.cs" />
+     <Compile Include="Assets\Addons\Cocuy\Editor\VelocityManipulatorEditor.cs" />
+     <Compile Include="Assets\Addons\RadialController\Editor\RadialControllerEditor.cs" />
+     <None Include="Assets\Addons\Cocuy\Shaders\Viscosity.compute" />
+     <None Include="Assets\Addons\Cocuy\Shaders\ApplyVorticity.compute" />
+     <None Include="Assets\Addons\Cocuy\Shaders\AddVelocity.compute" />
+     <None Include="Assets\Addons\Cocuy\Shaders\Divergence.compute" />
+     <None Include="Assets\Addons\Cocuy\Shaders\SubstractGradient.compute" />
+     <None Include="Assets\Addons\Cocuy\Materials\MaterialRenderer.shader" />
+     <None Include="Assets\Addons\Cocuy\Shaders\Poisson.compute" />
+     <None Include="Assets\Addons\Cocuy\Shaders\InitPressureBoundaries.compute" />
+     <None Include="Assets\Addons\Cocuy\Shaders\AdvectVelocity.compute" />
+     <None Include="Assets\Addons\Cocuy\Shaders\AdvectParticles.compute" />
      <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
-     <None Include="Assets\Cocuy\Shaders\CalcVorticity.compute" />
-     <None Include="Assets\Cocuy\Shaders\AddObstacleCircle.compute" />
-     <None Include="Assets\Cocuy\Shaders\ClearBuffer.compute" />
-     <None Include="Assets\Cocuy\Shaders\AddParticles.compute" />
-     <None Include="Assets\Cocuy\Shaders\AddObstacleTriangle.compute" />
-     <None Include="Assets\Cocuy\Shaders\InitBoundaries.compute" />
+     <None Include="Assets\Addons\Cocuy\Shaders\CalcVorticity.compute" />
+     <None Include="Assets\Addons\Cocuy\Shaders\AddObstacleCircle.compute" />
+     <None Include="Assets\Addons\Cocuy\Shaders\ClearBuffer.compute" />
+     <None Include="Assets\Addons\Cocuy\Shaders\AddParticles.compute" />
+     <None Include="Assets\Addons\Cocuy\Shaders\AddObstacleTriangle.compute" />
+     <None Include="Assets\Addons\Cocuy\Shaders\InitBoundaries.compute" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
