@@ -4,4 +4,4 @@
 
 Leverages the RadialControllerUnityBridge project for the Surface Dial integration in UWP.  
 
-For further information head on over to ![the post on the code](https://vaughanknight.com/2017/04/26/surface-dial-and-surface-studio-demo/).
+For further information head on over to [the post on the code](https://vaughanknight.com/2017/04/26/surface-dial-and-surface-studio-demo/).
