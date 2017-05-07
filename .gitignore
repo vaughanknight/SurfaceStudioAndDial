@@ -1,6 +1,5 @@
 .vs
 .vs/*
-*.meta
 UWP
 UWP/**
 Build
